@@ -4,10 +4,12 @@ const app = new Vue({
         url: '',
         slug: '',
         created: null,
+        errorSlug: '',
+        errorUrl: '',
+        fullUrl: ''
     },
     methods:{
         async createUrl(){
-            // console.log(this.url, this.slug);
             const response = await fetch('/url',{
                 method: 'POST',
                 headers: {
@@ -19,8 +21,19 @@ const app = new Vue({
                 }),
             });
             this.created = await response.json();
+            if (this.created.message){
+                if(this.created.message.toLowerCase().includes('slug')){
+                    this.errorSlug = this.created.message;
+                    this.errorUrl = "";
+                }else{
+                    this.errorUrl = this.created.message;
+                    this.errorSlug = "";
+                }
+            }else{
+                this.fullUrl = `${location.origin}/${this.slug} `
+            }
 
         }
     }
 
-})
+})  

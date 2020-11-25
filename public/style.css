@@ -1,0 +1,13 @@
+.content {
+    min-height: 92vh;
+    /* flex-grow: 1; */
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    align-self: center;
+    /* max-height: 10px; */
+    /* justify-self: center; */
+}
