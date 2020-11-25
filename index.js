@@ -55,12 +55,12 @@ app.post('/url', async(req, res, next)=>{
     // TODO: create a  redirect to url
     let {slug, url} = req.body;
     try{
-        await schema.validate({
-            slug, url,
-        })
         if(!slug | slug == ""){
             slug = nanoid(5);
         }
+        await schema.validate({
+            slug, url,
+        })
         slug = slug.toLowerCase();
         const newUrl = {
             url, slug, 
