@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.static('./public'));
 
 const schema = yup.object().shape({
-    slug: yup.string().trim().matches(/[\w\-]/i),
+    slug: yup.string().trim().matches(/^[\w\-]+$/i),
     url: yup.string().trim().url().required(),
 });
 
