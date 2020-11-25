@@ -33,6 +33,20 @@ const app = new Vue({
                 this.fullUrl = `${location.origin}/${this.slug} `
             }
 
+        },
+        async copyUrl() {
+            await navigator.clipboard.writeText(this.fullUrl);
+            // alert('Copied!');
+            // POPUP
+        },
+
+        goBack(){
+            this.url =  '';
+            this.created =  null;
+            this.errorSlug =  '';
+            this.errorUrl =  '';
+            this.fullUrl =  '';
+            this.slug =  '';
         }
     }
 
