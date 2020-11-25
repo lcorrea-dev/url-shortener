@@ -58,7 +58,7 @@ app.post('/url', async(req, res, next)=>{
         await schema.validate({
             slug, url,
         })
-        if(!slug ){
+        if(!slug | slug == ""){
             slug = nanoid(5);
         }
         slug = slug.toLowerCase();
