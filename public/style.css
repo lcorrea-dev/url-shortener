@@ -11,3 +11,7 @@
     /* max-height: 10px; */
     /* justify-self: center; */
 }
+
+[v-cloak] {
+    display: none;
+}
